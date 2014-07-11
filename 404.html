@@ -104,34 +104,57 @@
             </ul>
             <p>Thank you, namaste, and good luck.</p>
             <div class="clock"></div>
+            <!-- <div class="clock2"></div> -->
             <!-- http://cssdeck.com/labs/lost -->
             <!-- http://codepen.io/robbue/pen/JBxtI -->
-            <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-            <script>window.jQuery || document.write('<script src="/scripts/vendor/jquery-2.1.1.min.js"><\/script>')</script>
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+            <!--<script>window.jQuery || document.write('<script src="/scripts/vendor/jquery-1.10.2.min.js"><\/script>')</script>-->
             <script src="/scripts/vendor/flipclock.min.js"></script>
-            <!--<script src="/scripts/vendor/lostclock.js"></script>-->
+            <script src="/scripts/lostclock.js"></script>
+            <script src="/scripts/lostcounter.js"></script>
             <script src="/scripts/vendor/cheet.min.js"></script>
             <script>
-                var clock = $('.clock').FlipClock(240, {
-                    countdown: true,
-                    clockFace: 'MinuteCounter'
-                });
+                $(document).ready(function() {
+                    var lostClock = $('.clock').FlipClock(10, {
+                        countdown: true,
+                        clockFace: 'LostClock'
+                    });
 
-                cheet('4 8 1 5 1 6 2 3 4 2 enter', {
-                  next: function (str, key, num, seq) {
-                    console.log('key pressed: ' + key);
-                    console.log('progress: ' + num / seq.length);
-                    console.log('seq: ' + seq.join(' '));
-                  },
+                    var lostCounter = $('.counter').FlipClock(10, {
+                        minimumDigits: 5,
+                        clockFace: 'LostCounter'
+                    });
 
-                  fail: function () {
-                    console.log('sequence failed');
-                  },
+                    // var spinLostCounter = function myLoop(i) {
+                    //     setTimeout(function () {
+                    //         lostCounter.increment();
+                    //         if (--i) myLoop(i);
+                    //     })(99999);
+                    // }
 
-                  done: function () {
-                    console.log('+30 lives ;)');
-                    // lostCountdown = new Countdown({ style: "flip", time:6480 });
-                  }
+                    var hollaBack = function () {
+                        console.log('direct hit!');
+                    };
+
+                    // cheet('4 8 1 5 1 6 2 3 4 2 enter', {
+                    cheet('4 enter', {
+                      next: function (str, key, num, seq) {
+                        // console.log('key pressed: ' + key);
+                        // console.log('progress: ' + num / seq.length);
+                        // console.log('seq: ' + seq.join(' '));
+                      },
+
+                      fail: function () {
+                        console.log('sequence failed');
+                      },
+
+                      done: function () {
+                        // lostClock.reset();
+                        // lostClock.start();
+                            //spinLostCounter();
+
+                      }
+                    });
                 });
             </script>
         </div>
