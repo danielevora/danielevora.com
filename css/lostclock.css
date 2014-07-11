@@ -1,0 +1,38 @@
+
+
+.flip-clock-divider .flip-clock-label {
+ 	display: none;
+ 	visibility: hidden;
+ }
+
+.flip-clock-divider.minutes {
+	display: none;
+	visibility: hidden;
+}
+
+.flip-clock-divider.seconds .flip-clock-label {
+ 	display: none;
+ 	visibility: hidden;
+}
+
+.flip-clock-dot.top {
+  display: none;
+ }
+
+.flip-clock-dot.bottom {
+  display: none;
+ }
+
+.flip-clock-wrapper > ul:nth-last-of-type(-n+2) li a div div.inn {
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 200%;
+  color: #000;
+  text-shadow: 0 1px 2px #fff;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 6px;
+  font-size: 70px;
+}
